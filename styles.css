@@ -1,0 +1,32 @@
+.gameboard {
+    width: 600px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.board-tile2 {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.board-tile4 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.board-tile5 {
+    border: 1px solid black;
+}
+
+.board-tile6 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.board-tile8 {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+
