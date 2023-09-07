@@ -30,7 +30,6 @@ const gameBoard = (() => {
     }
     updateBoard();
     clearCellTextContent();
-    gameController.activePlayer = playerOne
   };
 
   const clearCellTextContent = () => {
@@ -48,9 +47,37 @@ const gameBoard = (() => {
 })();
 
 const gameController = (() => {
-  const playerOne = playerFactory('Player One', 'x');
-  const playerTwo = playerFactory('Player Two', 'o');
+
   
+  let p1Name = document.getElementById('player1-name').textContent; 
+  if (p1Name === "") {
+    p1Name = "Player 1";
+  }
+
+  let p2Name = document.getElementById('player2-name').textContent;
+  if (p2Name === "") {
+    p2Name = "Player 2";
+  }
+
+
+  let playerOne = playerFactory(p1Name, 'X');
+  let playerTwo = playerFactory(p2Name, 'O');
+  
+  console.log(playerOne, playerTwo)
+  let playerInfo = document.querySelectorAll('.player-info');
+
+  playerInfo.forEach((element) => {
+    element.addEventListener('change', () => {
+      let p1Name = document.getElementById('player1-name').textContent; 
+      let p2Name = document.getElementById('player2-name').textContent;
+      playerOne.name = p1Name;
+      playerTwo.name = p2Name;
+      console.log(playerOne, playerTwo);
+    });
+  });
+
+
+
   const switchPlayer = () => {
     activePlayer = activePlayer === playerOne ? playerTwo : playerOne;
   };
